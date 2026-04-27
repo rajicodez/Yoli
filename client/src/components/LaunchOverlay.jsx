@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import confetti from 'canvas-confetti';
-import rotaryLogo from '../assets/Colombo Centi Logo.png';
+import rotaryLogo from '../assets/WhatsApp Image 2026-04-27 at 15.27.48.jpeg';
 
 export default function LaunchOverlay({ onLaunch }) {
     const [isLaunching, setIsLaunching] = useState(false);
@@ -78,20 +78,36 @@ export default function LaunchOverlay({ onLaunch }) {
                     transition={{ duration: 0.8, delay: 0.2 }}
                     className="flex flex-col items-center"
                 >
-                    <motion.div
+                    <motion.div 
                         initial={{ scale: 0.9, opacity: 0 }}
                         animate={{ scale: 1, opacity: 1 }}
-                        transition={{ duration: 1, delay: 0.1 }}
-                        className="bg-white/90 p-4 rounded-xl shadow-2xl mb-8 backdrop-blur-sm"
+                        transition={{ duration: 1.2, delay: 0.1 }}
+                        className="relative group mb-12"
                     >
-                        <img src={rotaryLogo} alt="Rotary Colombo Centennial" className="h-16 md:h-20 object-contain" />
+                        {/* Elegant Glow Backdrop */}
+                        <div className="absolute -inset-2 bg-gradient-to-r from-amber-500/10 to-yellow-500/10 rounded-[2rem] blur-xl opacity-30 group-hover:opacity-60 transition duration-1000"></div>
+                        
+                        {/* The Plaque */}
+                        <div className="relative bg-white/10 backdrop-blur-md border border-white/20 p-1 rounded-[1.5rem] shadow-2xl overflow-hidden">
+                            <div className="bg-white rounded-[1.2rem] p-6 shadow-inner flex flex-col items-center border border-amber-500/10">
+                                <img src={rotaryLogo} alt="Rotary Colombo Centennial" className="h-16 md:h-20 object-contain filter drop-shadow-sm brightness-105" />
+                            </div>
+                        </div>
+
+                        {/* Subtle Badge */}
+                        <div className="absolute -bottom-3 left-1/2 -translate-x-1/2 bg-black text-amber-400 text-[8px] font-bold uppercase tracking-[0.3em] px-5 py-1.5 rounded-full shadow-2xl border border-amber-500/30 whitespace-nowrap">
+                            MSME Initiative
+                        </div>
                     </motion.div>
 
-                    <span className="text-amber-400 font-bold tracking-[0.3em] uppercase text-sm mb-4 block">
-                        Experience the Unveiling
-                    </span>
+                    <div className="mb-12 text-center">
+                        <h2 className="text-white text-lg md:text-xl font-extralight tracking-[0.5em] uppercase leading-tight opacity-90">
+                            Experience the Unveiling
+                        </h2>
+                        <div className="h-px w-16 bg-gradient-to-r from-transparent via-amber-500/50 to-transparent mx-auto mt-6"></div>
+                    </div>
                     <h1 className="font-display text-6xl md:text-8xl text-white mb-8 drop-shadow-2xl">
-                        Yoli <span className="text-primary-light italic text-4xl md:text-5xl block mt-2">Luxury Store</span>
+                        Yoli <span className="text-primary-light italic text-4xl md:text-5xl block mt-2">Your Launch To Opportunity</span>
                     </h1>
                 </motion.div>
 
